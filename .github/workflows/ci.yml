@@ -1,0 +1,21 @@
+name: Trigger Python
+on:
+  pull_request:
+    type: [opened, reopened, synchronize]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  test:
+    runs-on: ubuntu-22.04
+
+  steps:
+    - name: checkout repo
+      uses: actions/checkout@v3
+
+    - name: run python
+      run: |
+        /usr/bin/python3 test.py
