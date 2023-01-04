@@ -4,7 +4,7 @@ on:
     type: [opened, reopened, synchronize]
   push:
     branches:
-      - main
+      - master
 
 concurrency:
   group: ci-${{ github.ref }}
